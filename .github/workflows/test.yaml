@@ -14,6 +14,7 @@ jobs:
         with:
           node-version: 16
           cache: npm
+          path: node_modules
 
       # - uses: actions/cache@v3
       #   id: cache-packages
