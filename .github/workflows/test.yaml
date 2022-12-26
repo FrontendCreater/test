@@ -25,4 +25,4 @@ jobs:
       - name: install
         if: steps.cache-packages.outputs.cache-hit != 'true'
         run: npm ci
-      - run: npm run test
+      - run: npm test
