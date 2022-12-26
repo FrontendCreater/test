@@ -10,17 +10,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      # - uses: actions/setup-node@v3
-      #   with:
-      #     node-version: 16
-
-      - uses: actions/cache@v3
-        id: cache-packages
+      - uses: actions/setup-node@v3
         with:
-          path: node_modules
-          key: ${{ runner.OS }}-npm-cache-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: ${{ runner.OS }}-npm-cache-
+          node-version: 16
+          cache: npm
+
+      # - uses: actions/cache@v3
+      #   id: cache-packages
+      #   with:
+      #     path: node_modules
+      #     key: ${{ runner.OS }}-npm-cache-${{ hashFiles('**/package-lock.json') }}
+      #     restore-keys: ${{ runner.OS }}-npm-cache-
 
       - run: npm ci
-        if: steps.cache-packages.outputs.cache-hit != 'true'
+        # if: steps.cache-packages.outputs.cache-hit != 'true'
       - run: npm test
