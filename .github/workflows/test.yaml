@@ -13,7 +13,6 @@ jobs:
       # - uses: actions/setup-node@v3
       #   with:
       #     node-version: 16
-      #     cache: npm
 
       - uses: actions/cache@v3
         id: cache-packages
@@ -22,6 +21,7 @@ jobs:
           key: ${{ runner.OS }}-npm-cache-${{ hashFiles('**/package-lock.json') }}
           restore-keys: ${{ runner.OS }}-npm-cache-
 
-      - run: npm ci
+      - name: install
         if: steps.cache-packages.outputs.cache-hit != 'true'
+        run: npm ci
       - run: npm run test
