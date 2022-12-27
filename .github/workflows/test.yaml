@@ -1,7 +1,7 @@
 name: test
 
 on:
-  push: [main]
+  push:
   pull_request:
 
 jobs:
