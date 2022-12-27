@@ -5,5 +5,5 @@ test('name Jest expect Hello, Jest!', () => {
 });
 
 test('name empty expect Hello, Anonim!', () => {
-  expect(sayHello()).toBe('Hello, Anonim!');
+  expect(sayHello()).toBe('Hello, Anonim!!');
 });
